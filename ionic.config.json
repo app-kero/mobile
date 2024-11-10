@@ -1,0 +1,7 @@
+{
+  "name": "app-kero",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
