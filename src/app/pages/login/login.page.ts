@@ -1,18 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from 'src/app/core/api/autenticacao.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [RouterModule]
+  imports: [RouterModule, ReactiveFormsModule]
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
+  form: FormGroup;
+  authService = inject(AuthService);
+  router = inject(Router);
 
-  ngOnInit(): void {
-    console.log('Página de login inicializada.');
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    })
   }
 
-
+  onSubimt() {
+    if(this.form.valid) {
+      // console.log(this.form.value);
+      this.authService.login(this.form.value).subscribe({
+        next: (response) => {
+          this.router.navigate(['home']);
+        },
+      });
+    }
+  }
 }
