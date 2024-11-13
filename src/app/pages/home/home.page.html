@@ -1,0 +1,27 @@
+<div class="h-screen overflow-auto">
+
+  <app-header></app-header>
+
+  <div class=" px-8 py-3">
+
+    <h2 class="text-xl font-bold">ALIMENTAÇÃO</h2>
+    <div class="divider"></div>
+
+    <div class="grid grid-cols-2 gap-4">
+
+      @if (cards.length > 0) {
+            <!-- Componente de Card -->
+       @for (card of cards; track $index) {
+        <app-card [pensamento]="card"></app-card>
+       }
+      } @else {
+        <h1 class="title flex flex-center"> Sem produtos ou serviços </h1>
+      }
+
+    </div>
+
+  </div>
+
+  <app-footer class="bottom-0 fixed w-full"></app-footer>
+
+  </div>
