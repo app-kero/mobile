@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -14,6 +14,4 @@ export class LandingPage implements OnInit {
   ngOnInit(): void {
     console.log("Tamo indo")
   }
-
-
 }

@@ -10,18 +10,17 @@ import { AuthService } from 'src/app/core/api/autenticacao.service';
   standalone: true
 })
 export class HeaderComponent implements OnInit{
-  autenticaoService = inject(AuthService);
-  changeDetector = inject(ChangeDetectorRef);  // Injeta o ChangeDetectorRef
   isLoggedIn = false;
+  authService = inject(AuthService);
 
   ngOnInit(): void {
-    const token = localStorage.getItem('USER_TOKEN');
-    this.isLoggedIn = !!token;
+    // Subscreve para mudanças no estado de login
+    this.authService.loggedIn$.subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn;
+    });
   }
 
   logout() {
-    // this.autenticaoService.logout();
-    this.isLoggedIn = false;  // Atualiza a variável isLoggedIn
-    this.changeDetector.detectChanges();  // Força a detecção de mudanças para atualizar a view
+    this.authService.logout();
   }
 }
