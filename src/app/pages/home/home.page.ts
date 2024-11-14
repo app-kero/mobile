@@ -3,16 +3,18 @@ import { FooterComponent } from 'src/app/componentes/footer/footer.component';
 import { HeaderComponent } from "../../componentes/header/header.component";
 import { CardComponent } from 'src/app/componentes/card/card.component';
 import { CommonModule } from '@angular/common';
-
+import { IonSpinner } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CardComponent, CommonModule]
+  imports: [IonSpinner, HeaderComponent, FooterComponent, CardComponent, CommonModule]
 })
 export class HomePage {
+
+  isLoading: boolean = true;
 
   cards = [
     {

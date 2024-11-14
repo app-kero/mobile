@@ -1,30 +1,36 @@
 import { Routes } from '@angular/router';
+import { HomePage } from './pages/home/home.page';
+import { LandingPage } from './pages/landing/landing.page';
+import { CadastroPage } from './pages/cadastro/cadastro.page';
+import { ResetPasswordPage } from './pages/reset-password/reset-password.page';
+import { LoginPage } from './pages/login/login.page';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'landing',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
     path: 'login',
-    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
+    component: LoginPage
   },
   {
     path: 'reset-password',
-    loadComponent: () => import('./pages/reset-password/reset-password.page').then( m => m.ResetPasswordPage)
+    component: ResetPasswordPage
   },
   {
     path: 'landing',
-    loadComponent: () => import('./pages/landing/landing.page').then( m => m.LandingPage)
+    component: LandingPage
   },
   {
     path: 'cadastro',
-    loadComponent: () => import('./pages/cadastro/cadastro.page').then( m => m.CadastroPage)
+    component: CadastroPage
   },
   {
     path: 'home',
-    loadComponent: () => import('./pages/home/home.page').then( m => m.HomePage)
+    component: HomePage
+
   },
 
 ];

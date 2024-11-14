@@ -1,7 +1,8 @@
-<div class="h-screen overflow-auto">
+<div class="h-full overflow-scroll">
 
   <app-header></app-header>
-  <div class=" px-8 py-3">
+
+  <div class="px-8 py-3" *ngIf="!isLoading">
 
     <h2 class="text-xl font-bold">ALIMENTAÇÃO</h2>
     <div class="divider"></div>
@@ -10,16 +11,19 @@
 
       @if (cards.length > 0) {
             <!-- Componente de Card -->
-       @for (card of cards; track $index) {
-        <app-card [pensamento]="card"></app-card>
-       }
-      } @else {
-        <h1 class="title flex flex-center"> Sem produtos ou serviços </h1>
+        @for (card of cards; track $index) {
+          <app-card [pensamento]="card"></app-card>
+        }
       }
 
     </div>
-    
+
   </div>
+
+  <div class="flex justify-center items-center px-8 py-3 h-full" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+
   <app-footer class="w-full mt-8"></app-footer>
 
 </div>
