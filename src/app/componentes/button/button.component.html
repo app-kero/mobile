@@ -1,0 +1,18 @@
+<button
+  [ngClass]="color"
+  class="px-3 py-1 text-xs text-white rounded"
+  *ngIf="route; else buttonClick"
+  [routerLink]="route"
+>
+  {{ text }}
+</button>
+
+<ng-template #buttonClick>
+  <button
+    [ngClass]="color"
+    class="px-3 flex py-1 text-xs text-white rounded"
+    (click)="handleClick()"
+  >
+    {{ text }}
+  </button>
+</ng-template>
