@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CardComponent {
   @Input() pensamento: Pensamento = {
+    id: 0,
     titulo: "sem titulo",
     descricao: "Vazia"
   };

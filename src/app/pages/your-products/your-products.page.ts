@@ -19,26 +19,32 @@ export class YourProductPage {
 
   cards = [
     {
+      id: 1,
       titulo: "Doce bom",
       descricao: "Aqui temos doces bons e são bons"
     },
     {
+      id: 2,
       titulo: "Doce bom",
       descricao: "Aqui temos doces bons e são bons"
     },
     {
+      id: 3,
       titulo: "Doce bom",
       descricao: "Aqui temos doces bons e são bons"
     },
     {
+      id: 4,
       titulo: "Doce bom",
       descricao: "Aqui temos doces bons e são bons"
     },
     {
+      id: 5,
       titulo: "Doce bom",
       descricao: "Aqui temos doces bons e são bons"
     },
     {
+      id: 6,
       titulo: "Doce bom",
       descricao: "Aqui temos doces bons e são bons"
     },
