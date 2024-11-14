@@ -12,6 +12,8 @@ import { IonSpinner } from "@ionic/angular/standalone";
   standalone: true,
   imports: [IonSpinner, HeaderComponent, FooterComponent, CardComponent, CommonModule]
 })
+
+
 export class HomePage {
 
   isLoading: boolean = false;

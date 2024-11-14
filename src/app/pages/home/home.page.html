@@ -11,11 +11,10 @@
 
       @if (cards.length > 0) {
             <!-- Componente de Card -->
-        @for (card of cards; track $index) {
-          <app-card [pensamento]="card"></app-card>
-        }
+       @for (card of cards; track $index) {
+        <app-card [pensamento]="card" mode="home"></app-card>
+       }
       }
-
     </div>
 
   </div>
