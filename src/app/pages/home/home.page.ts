@@ -14,7 +14,7 @@ import { IonSpinner } from "@ionic/angular/standalone";
 })
 export class HomePage {
 
-  isLoading: boolean = true;
+  isLoading: boolean = false;
 
   cards = [
     {
