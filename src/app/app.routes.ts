@@ -5,6 +5,8 @@ import { CadastroPage } from './pages/cadastro/cadastro.page';
 import { ResetPasswordPage } from './pages/reset-password/reset-password.page';
 import { LoginPage } from './pages/login/login.page';
 import { YourProductPage } from './pages/your-products/your-products.page';
+import { PrivacidadePage } from './privacidade/privacidade.page';
+import { SobreNosPage } from './sobre-nos/sobre-nos.page';
 
 export const routes: Routes = [
   {
@@ -38,5 +40,14 @@ export const routes: Routes = [
     component: YourProductPage
 
   },
+  {
+    path: 'privacidade',
+    component: PrivacidadePage
 
+  },
+  {
+    path: 'sobre-nos',
+    component: SobreNosPage
+
+  },
 ];
