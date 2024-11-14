@@ -4,8 +4,16 @@
   </div>
   <div class="flex-none gap-2">
     <div class="form-control">
-      <input type="text" placeholder="Search" class="input input-bordered md:w-auto" />
+      <input
+        type="text"
+        placeholder="Buscar"
+        class="input input-bordered md:w-auto"
+        [(ngModel)]="termoBusca"
+        (input)="buscarProdutos()"
+        (focus)="abrirPesquisa()"
+      />
     </div>
+
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
@@ -31,6 +39,34 @@
 
         <li><a (click)="logout()" [routerLink]="['/landing']" >Logout</a></li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="emPesquisa" class="fixed inset-0 bg-base-100 z-50 flex flex-col items-center p-4 transition-opacity duration-300 overflow-auto">
+  <!-- Contêiner do campo de busca e botão fechar -->
+  <div class="w-full max-w-3xl flex items-center mb-4">
+    <div class="form-control w-full">
+      <input
+        type="text"
+        placeholder="Buscar"
+        class="input input-bordered w-full bg-gray-700 text-white"
+        [(ngModel)]="termoBusca"
+        (input)="buscarProdutos()"
+      />
+    </div>
+
+    <button class="btn btn-primary h-full ml-4 px-6" (click)="fecharPesquisa()">X</button>
+  </div>
+
+  <!-- Contêiner de Resultados da Pesquisa -->
+  <div class="w-full max-w-3xl">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <app-card
+        *ngFor="let produto of produtosFiltrados"
+        [pensamento]="produto"
+        mode="home"
+      ></app-card>
     </div>
   </div>
 </div>
