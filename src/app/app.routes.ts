@@ -4,6 +4,7 @@ import { LandingPage } from './pages/landing/landing.page';
 import { CadastroPage } from './pages/cadastro/cadastro.page';
 import { ResetPasswordPage } from './pages/reset-password/reset-password.page';
 import { LoginPage } from './pages/login/login.page';
+import { YourProductPage } from './pages/your-products/your-products.page';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,11 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomePage
+
+  },
+  {
+    path: 'product',
+    component: YourProductPage
 
   },
 

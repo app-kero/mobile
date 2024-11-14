@@ -1,0 +1,31 @@
+<div class="h-screen overflow-auto">
+
+  <app-header></app-header>
+  <div class=" px-8 py-3">
+
+    <h2 class="text-xl font-bold">Seus Produtos</h2>
+    <div class="divider"></div>
+
+    <div class="grid grid-cols-2 gap-4">
+
+      @if (cards.length > 0) {
+            <!-- Componente de Card -->
+       @for (card of cards; track $index) {
+        <app-card [pensamento]="card" mode="produtos"></app-card>
+       }
+      }
+
+    </div>
+
+  </div>
+
+  <button
+    class="btn btn-primary btn-circle fixed bottom-8 right-8"
+    [routerLink]=""
+  >
+    +
+  </button>
+
+  <app-footer class="w-full mt-8"></app-footer>
+
+</div>
