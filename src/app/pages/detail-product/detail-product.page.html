@@ -1,0 +1,67 @@
+<div class="h-screen bg-gray-900 text-gray-200 p-4">
+  <!-- Cabeçalho -->
+  <app-header></app-header>
+
+  <!-- Imagem Principal do Produto -->
+  <div class="bg-gray-300 h-40 flex items-center justify-center">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+      alt="Imagem Principal"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="p-4">
+    <!-- Título do Produto -->
+    <h1 class="text-2xl font-bold">Doce Muito Bom</h1>
+
+    <!-- Tags -->
+    <div class="flex gap-2 mt-2">
+      <span class="badge badge-outline">#doce</span>
+      <span class="badge badge-outline">#lanche</span>
+    </div>
+
+    <!-- Carrossel de Imagens do Produto -->
+    <div class="flex gap-4 mt-4">
+      <div class="bg-gray-300 h-40 w-40 relative flex items-center justify-center">
+        <button
+          class="absolute left-2 bg-black bg-opacity-60 text-white w-8 h-8 rounded-full flex items-center justify-center text-xl hover:bg-opacity-80 transition"
+          (click)="voltarImagem()"
+        >
+          &#8249;
+        </button>
+
+        <img
+          [src]="imagens[imagemAtual]"
+          alt="Imagem do Produto"
+          class="w-full h-full object-cover"
+        />
+
+        <button
+          class="absolute right-2 bg-black bg-opacity-60 text-white w-8 h-8 rounded-full flex items-center justify-center text-xl hover:bg-opacity-80 transition"
+          (click)="avancarImagem()"
+        >
+          &#8250;
+        </button>
+      </div>
+
+      <!-- Informações do Produto -->
+      <div class="space-y-2 text-gray-400">
+        <p><span class="font-bold text-gray-200">Local:</span> Lanchonete</p>
+        <p><span class="font-bold text-gray-200">Horário:</span> 18:00 h</p>
+        <p><span class="font-bold text-gray-200">Preço:</span> R$ 20,00</p>
+        <p><span class="font-bold text-gray-200">Contato:</span> (63) 91111111</p>
+      </div>
+    </div>
+
+    <!-- Descrição do Produto -->
+    <p class="mt-4 text-gray-400">
+      Temos doce para você Temos doce para você Temos doce para você Temos doce
+      para você Temos doce para você Temos doce para você Temos doce para você
+    </p>
+
+    <div class="divider my-4"></div>
+
+  </div>
+</div>

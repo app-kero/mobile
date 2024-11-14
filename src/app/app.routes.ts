@@ -7,6 +7,7 @@ import { LoginPage } from './pages/login/login.page';
 import { YourProductPage } from './pages/your-products/your-products.page';
 import { PrivacidadePage } from './privacidade/privacidade.page';
 import { SobreNosPage } from './sobre-nos/sobre-nos.page';
+import { DetailProductPage } from './pages/detail-product/detail-product.page';
 
 export const routes: Routes = [
   {
@@ -49,5 +50,9 @@ export const routes: Routes = [
     path: 'sobre-nos',
     component: SobreNosPage
 
+  },
+  {
+    path: 'detail-product/:id',
+    component: DetailProductPage
   },
 ];
