@@ -1,0 +1,94 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Pizza de Peperone",
+      "descricao": "Deliciosa pizza no Bloco A",
+      "horario": "18:00",
+      "local": "Bloco A",
+      "usuario": "usuario1",
+      "tags": ["comidas", "pizza"],
+      "imagem": "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp",
+      "imagens": [
+        "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp",
+        "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
+        "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Maçã",
+      "descricao": "Maçã suculenta do Bloco I",
+      "horario": "09:00",
+      "local": "Bloco I",
+      "usuario": "usuario2",
+      "tags": ["frutas", "comidas"],
+      "imagem": "https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp",
+      "imagens": [
+        "https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp",
+        "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
+        "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Mini Pizza",
+      "descricao": "Mini pizza feita na hora",
+      "horario": "16:30",
+      "local": "Bloco B",
+      "usuario": "usuario1",
+      "tags": ["comidas", "pizza"],
+      "imagem": "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
+      "imagens": [
+        "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp",
+        "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
+        "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "Mexirica",
+      "descricao": "Mexirica doce no Bloco I",
+      "horario": "10:00",
+      "local": "Bloco I",
+      "usuario": "usuario3",
+      "tags": ["frutas"],
+      "imagem": "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp",
+      "imagens": [
+        "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp",
+        "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
+        "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "Bolo de Chocolate",
+      "descricao": "Bolo artesanal no Bloco B",
+      "horario": "14:00",
+      "local": "Bloco B",
+      "usuario": "usuario2",
+      "tags": ["doces"],
+      "imagem": "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
+      "imagens": [
+        "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp",
+        "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
+        "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+      ]
+    },
+    {
+      "id": 6,
+      "nome": "Doce de Leite",
+      "descricao": "Doce de leite caseiro vendido no Bloco C",
+      "horario": "15:30",
+      "local": "Bloco C",
+      "usuario": "usuario4",
+      "tags": ["doces"],
+      "imagem": "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp",
+      "imagens": [
+        "https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp",
+        "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp",
+        "https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+      ]
+    }
+  ]
+}

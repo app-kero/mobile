@@ -1,28 +1,60 @@
-<div class="h-full overflow-scroll">
-
+<div class="h-full overflow-auto bg-base-100">
+  <!-- Cabeçalho -->
   <app-header></app-header>
 
-  <div class="bg-base-100 px-8 py-3" *ngIf="!isLoading">
+  <!-- Carrossel -->
+  <div *ngIf="imagensCarrossel.length > 0" class="relative h-64 bg-gray-300 flex items-center justify-center rounded-lg shadow-lg mx-4 my-6">
+    <button
+      class="absolute left-4 bg-black bg-opacity-50 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-70 transition"
+      (click)="voltarCarrossel()"
+    >
+      &#8249;
+    </button>
 
-    <h2 class="text-xl font-bold">ALIMENTAÇÃO</h2>
-    <div class="divider"></div>
+    <img
+      [src]="imagensCarrossel[imagemAtual]"
+      alt="Imagem do Carrossel"
+      class="h-full w-full object-cover rounded-lg"
+    />
 
-    <div class="grid grid-cols-2 gap-4">
-
-      @if (cards.length > 0) {
-            <!-- Componente de Card -->
-       @for (card of cards; track $index) {
-        <app-card [pensamento]="card" mode="home"></app-card>
-       }
-      }
-    </div>
-
+    <button
+      class="absolute right-4 bg-black bg-opacity-50 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-70 transition"
+      (click)="avancarCarrossel()"
+    >
+      &#8250;
+    </button>
   </div>
 
-  <div class="flex justify-center items-center px-8 py-3 h-full" *ngIf="isLoading">
+  <!-- Agrupamentos de Produtos -->
+  <div *ngIf="!isLoading" class="bg-base-100 px-8 py-4">
+    <div *ngFor="let tag of getTags">
+      <div class="flex justify-between items-center mb-2">
+        <h2 class="text-xl font-bold capitalize">{{ tag }}</h2>
+        <a href="#" class="text-sm text-primary font-semibold">Ver Mais &gt;</a>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <app-card
+          *ngFor="let produto of produtosAgrupados[tag]"
+          [pensamento]="{
+            id: produto.id,
+            titulo: produto.nome,
+            descricao: produto.descricao,
+            imagem: produto.imagem
+          }"
+          mode="home"
+        ></app-card>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Loading Spinner -->
+  <div
+    class="flex justify-center items-center px-8 py-3 h-full"
+    *ngIf="isLoading"
+  >
     <ion-spinner></ion-spinner>
   </div>
 
   <app-footer class="w-full mt-8"></app-footer>
-
 </div>

@@ -16,7 +16,8 @@ export class CardComponent {
   @Input() pensamento: Pensamento = {
     id: 0,
     titulo: "sem titulo",
-    descricao: "Vazia"
+    descricao: "Vazia",
+    imagem: 'https://via.placeholder.com/150',
   };
 
   @Input() mode: 'home' | 'produtos' = 'home'; // Define o modo do card

@@ -1,30 +1,31 @@
-<div class="h-screen bg-base-100 text-gray-200 p-4">
-  <!-- Cabeçalho -->
+<div class="h-full overflow-auto bg-base-100 text-gray-100">
   <app-header></app-header>
 
   <!-- Imagem Principal do Produto -->
-  <div class="bg-gray-300 h-40 flex items-center justify-center">
+  <div class="bg-gray-300 h-56 flex items-center justify-center">
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+      [src]="produto?.imagem"
       alt="Imagem Principal"
       class="w-full h-full object-cover"
     />
   </div>
 
   <!-- Conteúdo Principal -->
-  <div class="p-4">
+  <div class="p-4" *ngIf="produto">
     <!-- Título do Produto -->
-    <h1 class="text-2xl font-bold">Doce Muito Bom</h1>
+    <h1 class="text-3xl font-bold">{{ produto.titulo }}</h1>
 
     <!-- Tags -->
     <div class="flex gap-2 mt-2">
-      <span class="badge badge-outline">#doce</span>
-      <span class="badge badge-outline">#lanche</span>
+      <span class="badge badge-primary" *ngFor="let tag of produto.tags">#{{ tag }}</span>
     </div>
 
+    <!-- Descrição do Produto -->
+    <p class="mt-4 text-gray-400">{{ produto.descricao }}</p>
+
     <!-- Carrossel de Imagens do Produto -->
-    <div class="flex gap-4 mt-4">
-      <div class="bg-gray-300 h-40 w-40 relative flex items-center justify-center">
+    <div class="flex gap-4 mt-6">
+      <div class="bg-gray-300 h-40 w-40 relative flex items-center justify-center rounded-lg overflow-hidden">
         <button
           class="absolute left-2 bg-black bg-opacity-60 text-white w-8 h-8 rounded-full flex items-center justify-center text-xl hover:bg-opacity-80 transition"
           (click)="voltarImagem()"
@@ -33,7 +34,7 @@
         </button>
 
         <img
-          [src]="imagens[imagemAtual]"
+          [src]="produto.imagens[imagemAtual]"
           alt="Imagem do Produto"
           class="w-full h-full object-cover"
         />
@@ -47,21 +48,34 @@
       </div>
 
       <!-- Informações do Produto -->
-      <div class="space-y-2 text-gray-400">
-        <p><span class="font-bold text-gray-200">Local:</span> Lanchonete</p>
-        <p><span class="font-bold text-gray-200">Horário:</span> 18:00 h</p>
-        <p><span class="font-bold text-gray-200">Preço:</span> R$ 20,00</p>
-        <p><span class="font-bold text-gray-200">Contato:</span> (63) 91111111</p>
+      <div class="space-y-2 text-gray-200">
+        <p><i class="fas fa-map-marker-alt text-primary"></i> <span class="font-semibold"> {{ produto.local }}</span></p>
+        <p><i class="far fa-clock text-primary"></i> <span class="font-semibold"> {{ produto.horario }}</span></p>
+        <p><i class="fas fa-tag text-primary"></i> <span class="font-semibold"> R$ {{ produto.preco }}</span></p>
       </div>
     </div>
 
-    <!-- Descrição do Produto -->
-    <p class="mt-4 text-gray-400">
-      Temos doce para você Temos doce para você Temos doce para você Temos doce
-      para você Temos doce para você Temos doce para você Temos doce para você
-    </p>
+    <div class="divider my-6"></div>
 
-    <div class="divider my-4"></div>
-
+    <!-- Redes Sociais -->
+    <div class="text-center">
+      <h3 class="text-xl font-bold mb-2">Redes Sociais</h3>
+      <div class="flex justify-center gap-4">
+        <a href="#" class="btn btn-circle bg-primary hover:bg-primary-focus">
+          <i class="fab fa-facebook-f text-white"></i>
+        </a>
+        <a href="#" class="btn btn-circle bg-primary hover:bg-primary-focus">
+          <i class="fab fa-instagram text-white"></i>
+        </a>
+        <a href="#" class="btn btn-circle bg-primary hover:bg-primary-focus">
+          <i class="fab fa-twitter text-white"></i>
+        </a>
+        <a href="#" class="btn btn-circle bg-primary hover:bg-primary-focus">
+          <i class="fas fa-share-alt text-white"></i>
+        </a>
+      </div>
+    </div>
   </div>
+
+  <app-footer class="w-full "></app-footer>
 </div>
