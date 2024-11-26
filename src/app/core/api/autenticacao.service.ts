@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { ApiResponse, LoginPayLoad, RegisterPayLoad, User } from '../model/common.model';
+import { ApiResponse, LoginPayLoad, RecoverPayLoad, RegisterPayLoad, User } from '../model/common.model';
 import { ApiEndpoint, LocalStorage } from '../constants/constants';
 import { BehaviorSubject, map } from 'rxjs';
 import { Router } from '@angular/router';
@@ -37,6 +37,13 @@ export class AuthService {
           this.loggedInSubject.next(true);
           return response;
       })
+    );
+  }
+
+  recover(payLoad: RecoverPayLoad) {
+    return this._http
+    .post<ApiResponse<User>>(`${ApiEndpoint.Auth.Recover}`, 
+      payLoad
     );
   }
 

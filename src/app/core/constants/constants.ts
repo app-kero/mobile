@@ -4,6 +4,8 @@ export const ApiEndpoint = {
     Auth: {
         Register: `${apiUrl}/usuario/new`,
         Login: `${apiUrl}/auth/login`, 
+        Recover: `${apiUrl}/api/recovery/recover-password`,
+        Reset: `${apiUrl}/api/recovery/reset-password`
     },
 };
 

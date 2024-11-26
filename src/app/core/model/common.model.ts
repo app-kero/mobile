@@ -15,6 +15,10 @@ export interface RegisterPayLoad {
     password: string;
 }
 
+export interface RecoverPayLoad {
+    email: string;
+}
+
 export interface ApiResponse<T> {
     status?: boolean;
     message?: string;

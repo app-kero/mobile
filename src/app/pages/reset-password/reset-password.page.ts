@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/core/api/autenticacao.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -10,11 +10,24 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
   standalone: true,
   imports: []
 })
-export class ResetPasswordPage implements OnInit {
+export class ResetPasswordPage {
+  form: FormGroup;
+  authService = inject(AuthService);
+  router = inject(Router);
 
-  ngOnInit(): void {
-    console.log('Página de recuperação de senha inicializada.');
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      email: new FormControl('', [Validators.required, Validators.email]),
+    })
   }
 
-
+  onSubimt() {
+    if(this.form.valid) {
+      this.authService.recover(this.form.value).subscribe({
+        next: () => {
+          this.router.navigate(['home']);
+        },
+      });
+    }
+  }
 }
