@@ -4,30 +4,30 @@
       <h1 class="text-5xl font-bold m-6">Faça Seu Cadastro</h1>
     </div>
     <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <form class="card-body">
+      <form class="card-body" [formGroup]="form" (submit)="onSubimt()">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Nome</span>
           </label>
-          <input type="nome" placeholder="Antônio Silveira" class="input input-bordered" required />
+          <input type="text" placeholder="Antônio Silveira" class="input input-bordered"  required formControlName="nome" />
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email-exemplo@gmail.com" class="input input-bordered" required />
+          <input type="email" placeholder="email-exemplo@gmail.com" class="input input-bordered" required formControlName="email"/>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Senha</span>
           </label>
-          <input type="password" placeholder="........" class="input input-bordered" required />
+          <input type="password" placeholder="........" class="input input-bordered" required formControlName="password"/>
           <label class="label">
             <p class="label-text-alt link link-hover">Já é usuário? <a [routerLink]="['/login']" class="label-text-alt link">Então faça login</a></p>
           </label>
         </div>
         <div class="form-control mt-6">
-          <button class="btn btn-primary">Cadastro</button>
+          <button class="btn btn-primary" [disabled]="form.invalid">Cadastro</button>
         </div>
       </form>
     </div>

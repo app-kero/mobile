@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/core/api/autenticacao.service';
 
@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/core/api/autenticacao.service';
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
   standalone: true,
-  imports: [RouterModule]
+  imports: [RouterModule, ReactiveFormsModule ]
 })
 export class CadastroPage {
   form: FormGroup;
@@ -27,7 +27,7 @@ export class CadastroPage {
     if(this.form.valid) {
       this.authService.register(this.form.value).subscribe({
         next: () => {
-          this.router.navigate(['home']);
+          this.router.navigate(['login']);
         },
       });
     }
