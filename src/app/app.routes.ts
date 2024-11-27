@@ -8,6 +8,8 @@ import { YourProductPage } from './pages/your-products/your-products.page';
 import { PrivacidadePage } from './privacidade/privacidade.page';
 import { SobreNosPage } from './sobre-nos/sobre-nos.page';
 import { DetailProductPage } from './pages/detail-product/detail-product.page';
+import { CadastrarProdutoPage } from './pages/cadastrar-produto/cadastrar-produto.page';
+import { EditarProdutoPage } from './pages/editar-produto/editar-produto.page';
 
 export const routes: Routes = [
   {
@@ -55,4 +57,14 @@ export const routes: Routes = [
     path: 'detail-product/:id',
     component: DetailProductPage
   },
+  {
+    path: 'cadastrar-produto',
+    component: CadastrarProdutoPage
+  },
+  {
+    path: 'editar-produto',
+    component: EditarProdutoPage
+  },
+
+
 ];

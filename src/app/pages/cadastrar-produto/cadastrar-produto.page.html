@@ -1,0 +1,53 @@
+<div class="h-full overflow-auto bg-base-100">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="text-center lg:text-left">
+      <h1 class="text-5xl font-bold m-6">Cadastrar Novo Produto</h1>
+    </div>
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <form class="card-body">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Nome do Produto</span>
+          </label>
+          <input type="text" placeholder="doce" class="input input-bordered" required/>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Descrição</span>
+          </label>
+          <textarea placeholder="Descrição" class="textarea textarea-bordered textarea-xs w-full max-w-xs"></textarea>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Local</span>
+          </label>
+          <input type="text" placeholder="Lanchonete" class="input input-bordered" required/>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Horário</span>
+          </label>
+          <input type="text" placeholder="17h00 - 19h00" class="input input-bordered" required/>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Preço</span>
+          </label>
+          <input type="text" placeholder="9,00" class="input input-bordered" required/>
+        </div>
+
+        <div class="form-control">
+          <h2 class="text-2xl font-bold m-2">Foto</h2>
+          <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+        </div>
+        <div class="form-control">
+          <h2 class="text-2xl font-bold m-2">Tags</h2>
+          <input type="text" placeholder="comida, doce, lanche..." class="input input-bordered" required/>
+        </div>
+        <div class="form-control mt-6">
+          <button class="btn btn-primary">Adicionar produto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

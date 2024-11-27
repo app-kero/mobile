@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/core/api/autenticacao.service';
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule ]
+  imports: [RouterModule, ReactiveFormsModule]
 })
 export class CadastroPage {
   form: FormGroup;
