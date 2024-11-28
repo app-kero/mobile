@@ -1,11 +1,7 @@
 <div class="card bg-base-100 shadow-md">
   <!-- Imagem no topo -->
   <figure class="h-32 bg-gray-300">
-    <img
-      [src]="pensamento.imagem"
-      alt="Imagem do Pensamento"
-      class="object-cover h-full w-full"
-    />
+    <img [src]="pensamento.imagem" alt="Imagem do Pensamento" class="object-cover h-full w-full" />
   </figure>
 
   <!-- Corpo do Card -->
@@ -15,24 +11,13 @@
     <p class="text-xs sm:text-sm">{{ pensamento.descricao }}</p>
     <div class="flex justify-end gap-x-2 mt-3">
       <ng-container *ngIf="mode === 'produtos'">
-        <app-button
-          text="Editar"
-          color="bg-yellow-500 hover:bg-yellow-600"
-          (onClick)="editarPensamento()"
-        ></app-button>
-        <app-button
-          text="Excluir"
-          color="bg-red-500 hover:bg-red-600"
-          (onClick)="excluirPensamento()"
-        ></app-button>
+        <app-button text="Editar" color="bg-yellow-500 hover:bg-yellow-600" (onClick)="editarPensamento()"></app-button>
+        <app-button text="Excluir" color="bg-red-500 hover:bg-red-600" (onClick)="excluirPensamento()"></app-button>
       </ng-container>
 
       <ng-container *ngIf="mode === 'home'">
-        <app-button
-          text="Saiba mais"
-          color="bg-blue-500 hover:bg-blue-600"
-          [route]="'/detail-product/' + pensamento.id"
-        ></app-button>
+        <app-button text="Saiba mais" color="bg-blue-500 hover:bg-blue-600"
+          [route]="'/detail-product/' + pensamento.id"></app-button>
       </ng-container>
     </div>
   </div>

@@ -9,5 +9,5 @@ import { ɵBrowserAnimationBuilder } from '@angular/animations';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
-  constructor() {}
+  constructor() { }
 }

@@ -4,14 +4,8 @@
   </div>
   <div class="flex-none gap-2">
     <div class="form-control">
-      <input
-        type="text"
-        placeholder="Buscar"
-        class="input input-bordered md:w-auto"
-        [(ngModel)]="termoBusca"
-        (input)="buscarProdutos()"
-        (focus)="abrirPesquisa()"
-      />
+      <input type="text" placeholder="Buscar" class="input input-bordered md:w-auto" [(ngModel)]="termoBusca"
+        (input)="buscarProdutos()" (focus)="abrirPesquisa()" />
     </div>
 
     @if (isLoggedIn) {
@@ -19,77 +13,68 @@
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button">
         <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-          <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+          <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+            </path>
+          </svg>
+        </div>
       </div>
-      </div>
-      
+
       <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a> Perfil </a></li>
-          <li><a [routerLink]="['/cadastrar-produto']">Cadastrar produto</a></li>
-          <li><a>Seus produtos</a></li>
-        <li><a (click)="logout()" [routerLink]="['/landing']" >Logout</a></li>
+        <li><a [routerLink]="['/cadastrar-produto']">Cadastrar produto</a></li>
+        <li><a [routerLink]="['/product']">Seus produtos</a></li>
+        <li><a (click)="logout()" [routerLink]="['/landing']">Logout</a></li>
       </ul>
-      
+
     </div>
-    } @else {    
+    } @else {
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button">
         <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-          <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+          <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+            </path>
+          </svg>
+        </div>
       </div>
-      </div>
-      
-      <ul tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-30 p-2 shadow">
+
+      <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-30 p-2 shadow">
         <li><a [routerLink]="['/login']"> Login </a></li>
         <li><a [routerLink]="['/cadastro']"> Cadastro </a></li>
       </ul>
     </div>
-    
+
     }
-</div>
-
-<div
-  *ngIf="emPesquisa"
-  class="fixed inset-0 bg-base-100 z-50 flex flex-col items-center p-4 transition-opacity duration-300 overflow-auto"
->
-  <!-- Campo de Busca e Botão Fechar -->
-  <div class="w-full max-w-3xl flex items-center mb-4">
-    <div class="form-control w-full">
-      <input
-        type="text"
-        placeholder="Buscar"
-        class="input input-bordered w-full bg-gray-700 text-white"
-        [(ngModel)]="termoBusca"
-        (input)="buscarProdutos()"
-      />
-    </div>
-    <button class="btn btn-primary h-full ml-4 px-6" (click)="fecharPesquisa()">X</button>
   </div>
 
-  <div class="w-full max-w-3xl">
-    <!-- Resultados da Pesquisa -->
-    <h2 *ngIf="produtosFiltrados.length > 0" class="text-xl font-bold mt-6">
-      Porque você ker "{{ termoBusca }}"
-    </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-      <app-card
-        *ngFor="let produto of produtosFiltrados"
-        [pensamento]="produto"
-        mode="home"
-      ></app-card>
+  <div *ngIf="emPesquisa"
+    class="fixed inset-0 bg-base-100 z-50 flex flex-col items-center p-4 transition-opacity duration-300 overflow-auto">
+    <!-- Campo de Busca e Botão Fechar -->
+    <div class="w-full max-w-3xl flex items-center mb-4">
+      <div class="form-control w-full">
+        <input type="text" placeholder="Buscar" class="input input-bordered w-full bg-gray-700 text-white"
+          [(ngModel)]="termoBusca" (input)="buscarProdutos()" />
+      </div>
+      <button class="btn btn-primary h-full ml-4 px-6" (click)="fecharPesquisa()">X</button>
     </div>
 
-    <!-- Recomendações -->
-    <h2 *ngIf="produtosRecomendados.length > 0" class="text-xl font-bold mt-6">
-      Outras recomendações caso você queira
-    </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-      <app-card
-        *ngFor="let produto of produtosRecomendados"
-        [pensamento]="produto"
-        mode="home"
-      ></app-card>
+    <div class="w-full max-w-3xl">F
+      <!-- Resultados da Pesquisa -->
+      <h2 *ngIf="produtosFiltrados.length > 0" class="text-xl font-bold mt-6">
+        Porque você ker "{{ termoBusca }}"
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+        <app-card *ngFor="let produto of produtosFiltrados" [pensamento]="produto" mode="home"></app-card>
+      </div>
+
+      <!-- Recomendações -->
+      <h2 *ngIf="produtosRecomendados.length > 0" class="text-xl font-bold mt-6">
+        Outras recomendações caso você queira
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+        <app-card *ngFor="let produto of produtosRecomendados" [pensamento]="produto" mode="home"></app-card>
+      </div>
     </div>
   </div>
-</div>

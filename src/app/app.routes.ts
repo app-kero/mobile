@@ -36,22 +36,18 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomePage
-
   },
   {
     path: 'product',
     component: YourProductPage
-
   },
   {
     path: 'privacidade',
     component: PrivacidadePage
-
   },
   {
     path: 'sobre-nos',
     component: SobreNosPage
-
   },
   {
     path: 'detail-product/:id',

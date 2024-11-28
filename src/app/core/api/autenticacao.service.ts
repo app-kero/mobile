@@ -12,7 +12,7 @@ export class AuthService {
   private loggedInSubject = new BehaviorSubject<boolean>(this.checkToken());
   loggedIn$ = this.loggedInSubject.asObservable();
   router = inject(Router);
-  
+
   constructor(private _http: HttpClient) { }
 
   checkToken(): boolean {
@@ -36,15 +36,15 @@ export class AuthService {
           }
           this.loggedInSubject.next(true);
           return response;
-      })
-    );
+        })
+      );
   }
 
   recover(payLoad: RecoverPayLoad) {
     return this._http
-    .post<ApiResponse<User>>(`${ApiEndpoint.Auth.Recover}`, 
-      payLoad
-    );
+      .post<ApiResponse<User>>(`${ApiEndpoint.Auth.Recover}`,
+        payLoad
+      );
   }
 
   logout() {

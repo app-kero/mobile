@@ -3,11 +3,7 @@
 
   <!-- Imagem Principal do Produto -->
   <div class="bg-gray-300 h-56 flex items-center justify-center">
-    <img
-      [src]="produto?.imagem"
-      alt="Imagem Principal"
-      class="w-full h-full object-cover"
-    />
+    <img [src]="produto?.imagem" alt="Imagem Principal" class="w-full h-full object-cover" />
   </div>
 
   <!-- Conteúdo Principal -->
@@ -28,28 +24,23 @@
       <div class="bg-gray-300 h-40 w-40 relative flex items-center justify-center rounded-lg overflow-hidden">
         <button
           class="absolute left-2 bg-black bg-opacity-60 text-white w-8 h-8 rounded-full flex items-center justify-center text-xl hover:bg-opacity-80 transition"
-          (click)="voltarImagem()"
-        >
+          (click)="voltarImagem()">
           &#8249;
         </button>
 
-        <img
-          [src]="produto.imagens[imagemAtual]"
-          alt="Imagem do Produto"
-          class="w-full h-full object-cover"
-        />
+        <img [src]="produto.imagens[imagemAtual]" alt="Imagem do Produto" class="w-full h-full object-cover" />
 
         <button
           class="absolute right-2 bg-black bg-opacity-60 text-white w-8 h-8 rounded-full flex items-center justify-center text-xl hover:bg-opacity-80 transition"
-          (click)="avancarImagem()"
-        >
+          (click)="avancarImagem()">
           &#8250;
         </button>
       </div>
 
       <!-- Informações do Produto -->
       <div class="space-y-2 text-gray-200">
-        <p><i class="fas fa-map-marker-alt text-primary"></i> <span class="font-semibold"> {{ produto.local }}</span></p>
+        <p><i class="fas fa-map-marker-alt text-primary"></i> <span class="font-semibold"> {{ produto.local }}</span>
+        </p>
         <p><i class="far fa-clock text-primary"></i> <span class="font-semibold"> {{ produto.horario }}</span></p>
         <p><i class="fas fa-tag text-primary"></i> <span class="font-semibold"> R$ {{ produto.preco }}</span></p>
       </div>

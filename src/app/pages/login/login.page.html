@@ -7,18 +7,20 @@
       </p>
     </div>
     <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <form class="card-body" [formGroup]="form" (submit)="onSubimt()" >
+      <form class="card-body" [formGroup]="form" (submit)="onSubimt()">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email-exemplo@gmail.com" class="input input-bordered" formControlName="email" required />
+          <input type="email" placeholder="email-exemplo@gmail.com" class="input input-bordered" formControlName="email"
+            required />
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Senha</span>
           </label>
-          <input type="password" placeholder="........" class="input input-bordered" formControlName="password" required />
+          <input type="password" placeholder="........" class="input input-bordered" formControlName="password"
+            required />
           <label class="label">
             <div class="col-auto flex justify-between w-full">
               <a [routerLink]="['/reset-password']" class="label-text-alt link">Esqueci minha senha</a>
@@ -27,7 +29,7 @@
           </label>
         </div>
         <div class="form-control mt-6">
-          <button class="btn btn-primary" [disabled]="form.invalid" >Entrar</button>
+          <button class="btn btn-primary" [disabled]="form.invalid">Entrar</button>
         </div>
       </form>
     </div>
