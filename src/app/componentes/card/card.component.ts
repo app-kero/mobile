@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Pensamento } from './cardModel';
 import { ButtonComponent } from 'src/app/componentes/button/button.component';
 import { CommonModule } from '@angular/common';
+import { Pensamento } from 'src/app/core/model/common.model';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class CardComponent {
     id: 0,
     titulo: "sem titulo",
     descricao: "Vazia",
-    imagem: 'https://via.placeholder.com/150',
+    imagemUrl: 'https://via.placeholder.com/150',
   };
 
   @Input() mode: 'home' | 'produtos' = 'home'; // Define o modo do card

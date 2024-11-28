@@ -5,7 +5,6 @@ import { CardComponent } from 'src/app/componentes/card/card.component';
 import { CommonModule } from '@angular/common';
 import { IonSpinner } from '@ionic/angular/standalone';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Pensamento } from 'src/app/componentes/card/cardModel';
 import { Produto } from 'src/app/core/model/common.model';
 import { compileNgModule } from '@angular/compiler';
 import { ApiEndpoint } from 'src/app/core/constants/constants';

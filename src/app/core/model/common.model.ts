@@ -44,9 +44,17 @@ export interface Produto {
     id: number;
     nome: string;
     descricao: string;
+    preco: number,
     horario: string;
     local: string;
     usuario: string;
     tags: Tag[];
     fotos: Imagem[];
 }
+
+export interface Pensamento {
+    id: number;
+    titulo: string,
+    descricao: string,
+    imagemUrl: string;
+  }
