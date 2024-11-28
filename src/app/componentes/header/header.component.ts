@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CardComponent } from 'src/app/componentes/card/card.component';
 import { Pensamento } from 'src/app/core/model/common.model';
+import { ApiEndpoint } from 'src/app/core/constants/constants';
 
 @Component({
   selector: 'app-header',
@@ -37,7 +38,7 @@ export class HeaderComponent implements OnInit {
   }
 
   carregarProdutos(): void {
-    this.http.get<Pensamento[]>('http://localhost:3000/produtos').subscribe({
+    this.http.get<Pensamento[]>(ApiEndpoint.Produtos.All).subscribe({
       next: (produtos) => {
         this.produtos = produtos;
       },

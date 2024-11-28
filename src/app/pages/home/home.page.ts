@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Inject, OnInit } from '@angular/core';
 import { FooterComponent } from 'src/app/componentes/footer/footer.component';
 import { HeaderComponent } from '../../componentes/header/header.component';
 import { CardComponent } from 'src/app/componentes/card/card.component';
@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
 import { IonSpinner } from '@ionic/angular/standalone';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Produto } from 'src/app/core/model/common.model';
-import { compileNgModule } from '@angular/compiler';
 import { ApiEndpoint } from 'src/app/core/constants/constants';
+import { AuthService } from 'src/app/core/api/autenticacao.service';
 
 @Component({
   selector: 'app-home',
@@ -25,13 +25,24 @@ import { ApiEndpoint } from 'src/app/core/constants/constants';
 })
 export class HomePage implements OnInit {
   isLoading: boolean = true;
+  authService = Inject(AuthService);
+  private cdr = inject(ChangeDetectorRef);
   imagemAtual: number = 0; // Controle do carrossel
   imagensCarrossel: string[] = []; // Imagens do carrossel dinâmico
   produtosAgrupados: { [key: string]: Produto[] } = {}; // Produtos agrupados por tags
 
   constructor(private http: HttpClient) {}
 
+  compare(): string[] {
+    return Object.keys(this.produtosAgrupados || {});
+  }
+
   ngOnInit(): void {
+    this.carregarProdutos();
+  }
+
+  ionViewWillEnter(): void {
+    // Recarrega os produtos ao entrar na página
     this.carregarProdutos();
   }
 
@@ -47,6 +58,8 @@ export class HomePage implements OnInit {
         this.isLoading = false;
       },
     });
+
+    this.cdr.detectChanges();
   }
 
   agruparProdutosPorTag(produtos: Produto[]): void {

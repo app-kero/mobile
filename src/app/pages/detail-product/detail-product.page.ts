@@ -8,22 +8,23 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiEndpoint } from 'src/app/core/constants/constants';
 import { Produto } from 'src/app/core/model/common.model';
+import { IonSpinner } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-detail-product',
   templateUrl: './detail-product.page.html',
   styleUrls: ['./detail-product.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonSpinner, 
     CommonModule,
     FormsModule,
     FooterComponent,
     HeaderComponent,
-    CardComponent,
     HttpClientModule,
   ]
 })
 export class DetailProductPage implements OnInit {
+  isLoading: boolean = true;
   produtoId: string | null = null;
   produto!: Produto; // Armazena o produto carregado
   imagemAtual = 0;
@@ -43,9 +44,11 @@ export class DetailProductPage implements OnInit {
     this.http.get<any>(`${ApiEndpoint.Produtos.BuscarPorId}/${id}`).subscribe({
       next: (produto) => {
         this.produto = produto;
+        this.isLoading = false;
       },
       error: (err) => {
         console.error('Erro ao carregar detalhes do produto:', err);
+        this.isLoading = false;
       },
     });
   }

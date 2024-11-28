@@ -15,6 +15,16 @@ export interface RegisterPayLoad {
     password: string;
 }
 
+export interface RegisterProductPayload {
+    nome: string;
+    descricao: string;
+    preco: number,
+    horario: string;
+    local: string;
+    usuario: string;
+    tags: Tag[];
+}
+
 export interface RecoverPayLoad {
     email: string;
 }
