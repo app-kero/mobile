@@ -10,5 +10,5 @@ export const ApiEndpoint = {
 };
 
 export const LocalStorage = {
-    token: 'USER_TOKEN',
+  accessToken: 'USER_TOKEN',
 }

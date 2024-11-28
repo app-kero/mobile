@@ -31,9 +31,12 @@ export class AuthService {
       .post<ApiResponse<User>>(`${ApiEndpoint.Auth.Login}`, payLoad)
       .pipe(
         map((response) => {
-          if (response.token) {
-            localStorage.setItem(LocalStorage.token, response.token);
+          if (response.accessToken) {
+            console.log("topoekaosjd", response.accessToken)
+            localStorage.setItem(LocalStorage.accessToken, response.accessToken);
           }
+          console.log("responseasdsad", response)
+
           this.loggedInSubject.next(true);
           return response;
         })
@@ -42,13 +45,13 @@ export class AuthService {
 
   recover(payLoad: RecoverPayLoad) {
     return this._http
-      .post<ApiResponse<User>>(`${ApiEndpoint.Auth.Recover}`,
-        payLoad
-      );
+    .post<ApiResponse<User>>(`${ApiEndpoint.Auth.Recover}`,
+      payLoad
+    );
   }
 
   logout() {
-    localStorage.removeItem(LocalStorage.token);
+    localStorage.removeItem(LocalStorage.accessToken);
     this.loggedInSubject.next(false);
     this.router.navigate(['landing']);
   }
