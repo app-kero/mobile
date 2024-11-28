@@ -1,22 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FooterComponent } from 'src/app/componentes/footer/footer.component';
-import { HeaderComponent } from "../../componentes/header/header.component";
+import { HeaderComponent } from '../../componentes/header/header.component';
 import { CardComponent } from 'src/app/componentes/card/card.component';
 import { CommonModule } from '@angular/common';
-import { IonSpinner } from "@ionic/angular/standalone";
+import { IonSpinner } from '@ionic/angular/standalone';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Pensamento } from 'src/app/componentes/card/cardModel';
-
-interface Produto {
-  id: number;
-  nome: string;
-  descricao: string;
-  horario: string;
-  local: string;
-  usuario: string;
-  tags: string[];
-  imagem: string; // Adicionada a propriedade de imagem
-}
+import { Produto } from 'src/app/core/model/common.model';
+import { compileNgModule } from '@angular/compiler';
+import { ApiEndpoint } from 'src/app/core/constants/constants';
 
 @Component({
   selector: 'app-home',
@@ -45,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
   carregarProdutos(): void {
-    this.http.get<Produto[]>('http://localhost:3000/produtos').subscribe({
+    this.http.get<Produto[]>(ApiEndpoint.Produtos.All).subscribe({
       next: (produtos) => {
         this.agruparProdutosPorTag(produtos);
         this.carregarCarrossel(produtos);
@@ -61,15 +52,16 @@ export class HomePage implements OnInit {
   agruparProdutosPorTag(produtos: Produto[]): void {
     this.produtosAgrupados = produtos.reduce((grupos, produto) => {
       produto.tags.forEach((tag) => {
-        if (!grupos[tag]) grupos[tag] = [];
-        grupos[tag].push(produto);
+        if (!grupos[tag.nome]) grupos[tag.nome] = [];
+        grupos[tag.nome].push(produto);
       });
       return grupos;
     }, {} as { [key: string]: Produto[] });
   }
 
   carregarCarrossel(produtos: Produto[]): void {
-    this.imagensCarrossel = produtos.map((produto) => produto.imagem);
+    console.log(produtos);
+    this.imagensCarrossel = produtos.map((produto) => produto.fotos[0].url);
   }
 
   get getTags(): string[] {
@@ -83,7 +75,6 @@ export class HomePage implements OnInit {
   }
 
   avancarCarrossel(): void {
-    this.imagemAtual =
-      (this.imagemAtual + 1) % this.imagensCarrossel.length;
+    this.imagemAtual = (this.imagemAtual + 1) % this.imagensCarrossel.length;
   }
 }

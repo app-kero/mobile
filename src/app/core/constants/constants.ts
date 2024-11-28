@@ -7,6 +7,13 @@ export const ApiEndpoint = {
         Recover: `${apiUrl}/api/recovery/recover-password`,
         Reset: `${apiUrl}/api/recovery/reset-password`
     },
+    Produtos: {
+      All: `${apiUrl}/produtos`,
+      Cadastrar: `${apiUrl}/produtos/new`,
+      BuscarPorTag: `${apiUrl}/produtos/tag`,
+      BuscarPorNome: `${apiUrl}/produtos`,
+      BuscarPorId: `${apiUrl}/produtos/one`
+    }
 };
 
 export const LocalStorage = {

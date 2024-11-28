@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CardComponent } from 'src/app/componentes/card/card.component';
-import { Pensamento } from '../card/cardModel';
+import { Pensamento } from 'src/app/core/model/common.model';
 
 @Component({
   selector: 'app-header',

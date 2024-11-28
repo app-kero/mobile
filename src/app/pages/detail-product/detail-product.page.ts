@@ -6,6 +6,8 @@ import { HeaderComponent } from "../../componentes/header/header.component";
 import { CardComponent } from 'src/app/componentes/card/card.component';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ApiEndpoint } from 'src/app/core/constants/constants';
+import { Produto } from 'src/app/core/model/common.model';
 
 @Component({
   selector: 'app-detail-product',
@@ -23,7 +25,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class DetailProductPage implements OnInit {
   produtoId: string | null = null;
-  produto: any = null; // Armazena o produto carregado
+  produto!: Produto; // Armazena o produto carregado
   imagemAtual = 0;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
@@ -38,7 +40,7 @@ export class DetailProductPage implements OnInit {
 
   carregarDetalhesProduto(id: string) {
     // Busca o produto pelo ID na API
-    this.http.get<any>(`http://localhost:3000/produtos/${id}`).subscribe({
+    this.http.get<any>(`${ApiEndpoint.Produtos.BuscarPorId}/${id}`).subscribe({
       next: (produto) => {
         this.produto = produto;
       },
@@ -49,14 +51,14 @@ export class DetailProductPage implements OnInit {
   }
 
   avancarImagem() {
-    if (this.produto?.imagens) {
-      this.imagemAtual = (this.imagemAtual + 1) % this.produto.imagens.length;
+    if (this.produto.fotos) {
+      this.imagemAtual = (this.imagemAtual + 1) % this.produto.fotos.length;
     }
   }
 
   voltarImagem() {
-    if (this.produto?.imagens) {
-      this.imagemAtual = (this.imagemAtual - 1 + this.produto.imagens.length) % this.produto.imagens.length;
+    if (this.produto.fotos) {
+      this.imagemAtual = (this.imagemAtual - 1 + this.produto.fotos.length) % this.produto.fotos.length;
     }
   }
 }

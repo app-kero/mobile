@@ -3,17 +3,17 @@
 
   <!-- Imagem Principal do Produto -->
   <div class="bg-gray-300 h-56 flex items-center justify-center">
-    <img [src]="produto?.imagem" alt="Imagem Principal" class="w-full h-full object-cover" />
+    <img [src]="produto.fotos[0].url" alt="Imagem Principal" class="w-full h-full object-cover" />
   </div>
 
   <!-- Conteúdo Principal -->
   <div class="p-4" *ngIf="produto">
     <!-- Título do Produto -->
-    <h1 class="text-3xl font-bold">{{ produto.titulo }}</h1>
+    <h1 class="text-3xl font-bold">{{ produto.nome }}</h1>
 
     <!-- Tags -->
     <div class="flex gap-2 mt-2">
-      <span class="badge badge-primary" *ngFor="let tag of produto.tags">#{{ tag }}</span>
+      <span class="badge badge-primary" *ngFor="let tag of produto.tags">#{{ tag.nome }}</span>
     </div>
 
     <!-- Descrição do Produto -->
@@ -28,7 +28,7 @@
           &#8249;
         </button>
 
-        <img [src]="produto.imagens[imagemAtual]" alt="Imagem do Produto" class="w-full h-full object-cover" />
+        <img [src]="produto.fotos[imagemAtual].url" alt="Imagem do Produto" class="w-full h-full object-cover" />
 
         <button
           class="absolute right-2 bg-black bg-opacity-60 text-white w-8 h-8 rounded-full flex items-center justify-center text-xl hover:bg-opacity-80 transition"
