@@ -62,5 +62,4 @@ export const routes: Routes = [
     component: EditarProdutoPage
   },
 
-
 ];

@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from 'src/app/componentes/footer/footer.component';
 import { HeaderComponent } from "../../componentes/header/header.component";
-import { CardComponent } from 'src/app/componentes/card/card.component';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ApiEndpoint } from 'src/app/core/constants/constants';
 import { Produto } from 'src/app/core/model/common.model';
 import { IonSpinner } from "@ionic/angular/standalone";
@@ -15,12 +14,11 @@ import { IonSpinner } from "@ionic/angular/standalone";
   templateUrl: './detail-product.page.html',
   styleUrls: ['./detail-product.page.scss'],
   standalone: true,
-  imports: [IonSpinner, 
+  imports: [IonSpinner,
     CommonModule,
     FormsModule,
     FooterComponent,
-    HeaderComponent,
-    HttpClientModule,
+    HeaderComponent
   ]
 })
 export class DetailProductPage implements OnInit {
@@ -29,7 +27,7 @@ export class DetailProductPage implements OnInit {
   produto!: Produto; // Armazena o produto carregado
   imagemAtual = 0;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
     // Obter o ID do produto da URL

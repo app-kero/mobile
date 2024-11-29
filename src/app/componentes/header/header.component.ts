@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/core/api/autenticacao.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { CardComponent } from 'src/app/componentes/card/card.component';
 import { Pensamento } from 'src/app/core/model/common.model';
 import { ApiEndpoint } from 'src/app/core/constants/constants';
@@ -12,7 +12,7 @@ import { ApiEndpoint } from 'src/app/core/constants/constants';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [RouterModule, FormsModule, CommonModule, CardComponent, HttpClientModule],
+  imports: [RouterModule, FormsModule, CommonModule, CardComponent],
   standalone: true,
 })
 export class HeaderComponent implements OnInit {

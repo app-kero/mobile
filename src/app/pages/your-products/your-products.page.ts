@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
-import { ButtonComponent } from 'src/app/componentes/button/button.component';
 import { FooterComponent } from 'src/app/componentes/footer/footer.component';
 import { HeaderComponent } from "../../componentes/header/header.component";
 import { CardComponent } from 'src/app/componentes/card/card.component';
@@ -17,12 +16,10 @@ import { CardComponent } from 'src/app/componentes/card/card.component';
   imports: [
     CommonModule,
     FormsModule,
-    ButtonComponent,
     FooterComponent,
     HeaderComponent,
     CardComponent,
     RouterModule,
-    HttpClientModule,
     IonicModule,
   ],
 })
@@ -30,7 +27,7 @@ export class YourProductPage implements OnInit {
   cards: any[] = []; // Armazena os produtos carregados
   isLoading: boolean = true; // Indica se está carregando os dados
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.carregarProdutos();

@@ -35,7 +35,7 @@ export class CadastrarProdutoPage {
   createTagsList() {
     const tags: string = this.form.value.tags
     const sliceTags = tags.split(",");
-    
+
     return sliceTags.map((tag) => {
       tag.slice();
     });
@@ -47,7 +47,7 @@ export class CadastrarProdutoPage {
       tags: tagsList
     })
     console.log(this.files);
-    if(this.form.valid) {
+    if (this.form.valid) {
       this.authService.registerProduct(this.form.value, this.files).subscribe({
         next: () => {
           this.router.navigate(['home']);

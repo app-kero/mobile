@@ -22,7 +22,7 @@ export class ResetPasswordPage {
   }
 
   onSubimt() {
-    if(this.form.valid) {
+    if (this.form.valid) {
       this.authService.recover(this.form.value).subscribe({
         next: () => {
           this.router.navigate(['home']);

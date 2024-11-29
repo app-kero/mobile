@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
   imagensCarrossel: string[] = []; // Imagens do carrossel dinâmico
   produtosAgrupados: { [key: string]: Produto[] } = {}; // Produtos agrupados por tags
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   compare(): string[] {
     return Object.keys(this.produtosAgrupados || {});
