@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CardComponent } from 'src/app/componentes/card/card.component';
 import { Pensamento } from 'src/app/core/model/common.model';
-import { ApiEndpoint } from 'src/app/core/constants/constants';
+import {ApiEndpoint} from "../../core/constants/constants";
 
 @Component({
   selector: 'app-header',

@@ -12,7 +12,8 @@ export const ApiEndpoint = {
       Cadastrar: `${apiUrl}/produtos/new`,
       BuscarPorTag: `${apiUrl}/produtos/tag`,
       BuscarPorNome: `${apiUrl}/produtos`,
-      BuscarPorId: `${apiUrl}/produtos/one`
+      BuscarPorId: `${apiUrl}/produtos/one`,
+      DeletarPorId: `${apiUrl}/produtos/remover`
     }
 };
 

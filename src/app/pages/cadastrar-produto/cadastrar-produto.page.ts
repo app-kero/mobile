@@ -1,8 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { producerIncrementEpoch } from '@angular/core/primitives/signals';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { AuthService } from 'src/app/core/api/autenticacao.service';
+import {Component, inject} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Router, RouterModule} from '@angular/router';
+import {ProdutoService} from "../../core/api/produto.service";
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -13,13 +12,13 @@ import { AuthService } from 'src/app/core/api/autenticacao.service';
 })
 export class CadastrarProdutoPage {
   form: FormGroup;
-  authService = inject(AuthService);
+  productService = inject(ProdutoService);
   router = inject(Router);
   files: File[] = [];
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      nomeProduto: new FormControl('', [Validators.required]),
+      nome: new FormControl('', [Validators.required]),
       descricao: new FormControl('', [Validators.required]),
       local: new FormControl('', [Validators.required]),
       horario: new FormControl('', [Validators.required]),
@@ -32,23 +31,17 @@ export class CadastrarProdutoPage {
     this.files = Array.from(event.target.files);
   }
 
-  createTagsList() {
+  createTagsList(): string[] {
     const tags: string = this.form.value.tags
-    const sliceTags = tags.split(",");
-    
-    return sliceTags.map((tag) => {
-      tag.slice();
-    });
+    return tags.split(",").map(tag => tag.trim());
   }
 
   onSubimt() {
-    const tagsList = this.createTagsList();
     this.form.patchValue({
-      tags: tagsList
+      tags: this.createTagsList()
     })
-    console.log(this.files);
     if(this.form.valid) {
-      this.authService.registerProduct(this.form.value, this.files).subscribe({
+      this.productService.registerProduct(this.form.value, this.files).subscribe({
         next: () => {
           this.router.navigate(['home']);
         },
