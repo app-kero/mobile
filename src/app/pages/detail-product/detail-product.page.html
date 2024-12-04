@@ -1,10 +1,11 @@
 <div class="h-full overflow-auto bg-base-100 text-gray-100">
   <app-header></app-header>
 
-  @if (isLoading) {
   <!-- Imagem Principal do Produto -->
   <div class="bg-gray-300 h-56 flex items-center justify-center">
-    <img [src]="produto.fotos[0].url" alt="Imagem Principal" class="w-full h-full object-cover" />
+    @if (produto) {
+      <img [src]="produto.fotos[0].url" alt="Imagem Principal" class="w-full h-full object-cover" />
+    }
   </div>
 
   <!-- Conteúdo Principal -->
@@ -68,11 +69,6 @@
       </div>
     </div>
   </div>
-  } @else {
-  <div class="flex justify-center items-center px-8 py-3 h-full">
-    <ion-spinner></ion-spinner>
-  </div>
-  }
 
   <app-footer class="w-full "></app-footer>
 </div>

@@ -7,6 +7,7 @@ import { IonSpinner } from '@ionic/angular/standalone';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Produto } from 'src/app/core/model/common.model';
 import { ApiEndpoint } from 'src/app/core/constants/constants';
+import {ProdutoService} from "../../core/api/produto.service";
 import { AuthService } from 'src/app/core/api/autenticacao.service';
 
 @Component({
@@ -25,13 +26,12 @@ import { AuthService } from 'src/app/core/api/autenticacao.service';
 })
 export class HomePage implements OnInit {
   isLoading: boolean = true;
-  authService = Inject(AuthService);
   private cdr = inject(ChangeDetectorRef);
   imagemAtual: number = 0; // Controle do carrossel
   imagensCarrossel: string[] = []; // Imagens do carrossel dinâmico
   produtosAgrupados: { [key: string]: Produto[] } = {}; // Produtos agrupados por tags
 
-  constructor(private http: HttpClient) { }
+  constructor(private produtoService: ProdutoService) {}
 
   compare(): string[] {
     return Object.keys(this.produtosAgrupados || {});
@@ -47,10 +47,10 @@ export class HomePage implements OnInit {
   }
 
   carregarProdutos(): void {
-    this.http.get<Produto[]>(ApiEndpoint.Produtos.All).subscribe({
-      next: (produtos) => {
-        this.agruparProdutosPorTag(produtos);
-        this.carregarCarrossel(produtos);
+    this.produtoService.findAllProdutos().subscribe({
+      next: (response) => {
+        this.agruparProdutosPorTag(response.data);
+        this.carregarCarrossel(response.data);
         this.isLoading = false;
       },
       error: (err) => {
@@ -73,7 +73,7 @@ export class HomePage implements OnInit {
   }
 
   carregarCarrossel(produtos: Produto[]): void {
-    console.log(produtos);
+    // console.log(produtos);
     this.imagensCarrossel = produtos.map((produto) => produto.fotos[0].url);
   }
 

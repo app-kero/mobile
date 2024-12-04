@@ -7,7 +7,12 @@
 
     <!-- Exibe os produtos após carregamento -->
     <div *ngIf="!isLoading" class="grid grid-cols-2 gap-4">
-      <app-card *ngFor="let card of cards; trackBy: trackById" [pensamento]="card" mode="produtos"></app-card>
+      <app-card *ngFor="let card of cards; trackBy: trackById" [pensamento]="{
+            id: card.id,
+            titulo: card.nome,
+            descricao: card.descricao,
+            imagemUrl: card.fotos[0].url
+          }" mode="produtos"></app-card>
     </div>
 
     <!-- Spinner de carregamento -->

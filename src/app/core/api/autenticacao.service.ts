@@ -26,25 +26,6 @@ export class AuthService {
     );
   }
 
-  registerProduct(payLoad: Produto, files: File[]) {
-    const formData = new FormData();
-    const token = localStorage.getItem("USER_TOKEN");
-    formData.append('produto', new Blob([JSON.stringify(payLoad)], {type: 'application/json'}));
-    
-    files.forEach((file)=> {
-      formData.append('files', file);
-    });
-
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    })
-
-    return this._http.post<ApiResponse<Produto>>(
-      `${ApiEndpoint.Produtos.Cadastrar}`,
-      formData, { headers }
-    )
-  }
-
   login(payLoad: LoginPayLoad) {
     return this._http
       .post<ApiResponse<User>>(`${ApiEndpoint.Auth.Login}`, payLoad)
