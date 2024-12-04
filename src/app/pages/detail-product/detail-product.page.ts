@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { FooterComponent } from 'src/app/componentes/footer/footer.component';
-import { HeaderComponent } from "../../componentes/header/header.component";
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { ApiEndpoint } from 'src/app/core/constants/constants';
-import { Produto } from 'src/app/core/model/common.model';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {FooterComponent} from 'src/app/componentes/footer/footer.component';
+import {HeaderComponent} from "../../componentes/header/header.component";
+import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {ApiEndpoint} from 'src/app/core/constants/constants';
+import {Produto} from 'src/app/core/model/common.model';
 
 @Component({
   selector: 'app-detail-product',
@@ -17,9 +17,7 @@ import { Produto } from 'src/app/core/model/common.model';
     CommonModule,
     FormsModule,
     FooterComponent,
-    HeaderComponent,
-    CardComponent,
-    HttpClientModule,
+    HeaderComponent
   ]
 })
 export class DetailProductPage implements OnInit {

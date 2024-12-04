@@ -42,6 +42,19 @@
           <h2 class="text-2xl font-bold m-2">Foto</h2>
           <input type="file" class="file-input file-input-bordered w-full max-w-xs" (change)="onFileChange($event)"
             multiple />
+          <div class="mt-4">
+            <div *ngFor="let file of files; let i = index" class="flex items-center mb-2">
+              <p class="mr-4 files">{{ file.name }}</p>
+              <button
+                type="button"
+                class="btn btn-sm btn-error px-2"
+                (click)="removeFile(i)"
+                aria-label="Remover imagem"
+              >
+                &times;
+              </button>
+            </div>
+          </div>
         </div>
         <div class="form-control">
           <h2 class="text-2xl font-bold m-2">Tags</h2>

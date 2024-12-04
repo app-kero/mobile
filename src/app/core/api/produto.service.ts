@@ -11,8 +11,8 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) { }
 
-  findAllProdutos(): Observable<ApiResponse<Produto[]>> {
-    return this.http.get<ApiResponse<Produto[]>>(ApiEndpoint.Produtos.All);
+  findAllProdutos(): Observable<Produto[]> {
+    return this.http.get<Produto[]>(ApiEndpoint.Produtos.All);
   }
 
   deletarProdutoPorId(produtoId: number): Observable<any> {

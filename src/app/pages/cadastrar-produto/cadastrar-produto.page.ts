@@ -2,13 +2,14 @@ import {Component, inject} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterModule} from '@angular/router';
 import {ProdutoService} from "../../core/api/produto.service";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-cadastrar-produto',
   templateUrl: './cadastrar-produto.page.html',
   styleUrls: ['./cadastrar-produto.page.scss'],
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule]
+  imports: [RouterModule, ReactiveFormsModule, NgForOf]
 })
 export class CadastrarProdutoPage {
   form: FormGroup;
@@ -29,6 +30,10 @@ export class CadastrarProdutoPage {
 
   onFileChange(event: any): void {
     this.files = Array.from(event.target.files);
+  }
+
+  removeFile(index: number): void {
+    this.files.splice(index, 1);
   }
 
   createTagsList(): string[] {

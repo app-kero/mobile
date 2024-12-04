@@ -49,8 +49,8 @@ export class HomePage implements OnInit {
   carregarProdutos(): void {
     this.produtoService.findAllProdutos().subscribe({
       next: (response) => {
-        this.agruparProdutosPorTag(response.data);
-        this.carregarCarrossel(response.data);
+        this.agruparProdutosPorTag(response);
+        this.carregarCarrossel(response);
         this.isLoading = false;
       },
       error: (err) => {

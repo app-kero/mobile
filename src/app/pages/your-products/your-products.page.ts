@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
 import {FooterComponent} from 'src/app/componentes/footer/footer.component';
 import {HeaderComponent} from "../../componentes/header/header.component";
@@ -39,7 +38,7 @@ export class YourProductPage implements OnInit {
     console.log("carregando...")
     this.produtoService.findAllProdutos().subscribe({
       next: (response) => {
-        this.cards = response.data;
+        this.cards = response;
         this.isLoading = false;
       },
       error: (err) => {
