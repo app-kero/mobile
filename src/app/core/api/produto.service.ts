@@ -16,7 +16,11 @@ export class ProdutoService {
   }
 
   deletarProdutoPorId(produtoId: number): Observable<any> {
-    return this.http.delete(`${ApiEndpoint.Produtos.DeletarPorId}/${produtoId}`);
+    const token = localStorage.getItem("USER_TOKEN");
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    return this.http.delete(`${ApiEndpoint.Produtos.DeletarPorId}/${produtoId}`, { headers });
   }
 
   registerProduct(payLoad: Produto, files: File[]) {
