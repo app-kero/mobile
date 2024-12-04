@@ -67,4 +67,4 @@ export interface Pensamento {
     titulo: string,
     descricao: string,
     imagemUrl: string;
-  }
+}

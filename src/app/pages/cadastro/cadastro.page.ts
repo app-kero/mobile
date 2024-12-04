@@ -24,7 +24,7 @@ export class CadastroPage {
   }
 
   onSubimt() {
-    if(this.form.valid) {
+    if (this.form.valid) {
       this.authService.register(this.form.value).subscribe({
         next: () => {
           this.router.navigate(['login']);

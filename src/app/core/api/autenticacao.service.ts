@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { ApiResponse, LoginPayLoad, Produto, RecoverPayLoad, RegisterPayLoad, User } from '../model/common.model';
 import { ApiEndpoint, LocalStorage } from '../constants/constants';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -46,7 +46,6 @@ export class AuthService {
       payLoad
     );
   }
-
 
   logout() {
     localStorage.removeItem(LocalStorage.accessToken);

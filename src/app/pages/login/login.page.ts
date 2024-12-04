@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/core/api/autenticacao.service';
@@ -22,9 +22,8 @@ export class LoginPage {
     })
   }
 
-
   onSubimt() {
-    if(this.form.valid) {
+    if (this.form.valid) {
       this.authService.login(this.form.value).subscribe({
         next: () => {
           this.router.navigate(['home']);

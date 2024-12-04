@@ -22,7 +22,6 @@ import {Produto} from "../../core/model/common.model";
     HeaderComponent,
     CardComponent,
     RouterModule,
-    HttpClientModule,
     IonicModule,
   ],
 })
